@@ -1,0 +1,35 @@
+﻿@model ASPCoreDemo.Models.HinhChuNhat
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>HinhChuNhat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="XuLyLuu" asp-controller="HinhChuNhat">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Dai" class="control-label"></label>
+                <input asp-for="Dai" class="form-control" />
+                <span asp-validation-for="Dai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rong" class="control-label"></label>
+                <input asp-for="Rong" class="form-control" />
+                <span asp-validation-for="Rong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

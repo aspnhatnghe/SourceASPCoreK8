@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "OnTap";
+}
+
+<h1>OnTap</h1>
+
+<h2>Ngày tháng</h2>
+@{ 
+    var tet = new DateTime(2020, 1, 30);
+    int soNgay = (tet - DateTime.Now).Days;
+    
+    dynamic nn = "Nhất Nghệ";
+    nn = new DateTime(2003, 3, 11);
+}
+<div>
+    Tết vào ngày @tet.ToString("dd/MM/yyyy"). <br />
+    Còn @soNgay ngày nữa là đến Tết :)
+</div>
+
+<h3>Ví dụ làm tròn</h3>
+@{ 
+    const int SoSanPhamMoiTrang = 9;
+    int tongSoSanPham = 111;
+
+    int soTrang = (int) Math.Ceiling(1.0 * tongSoSanPham / SoSanPhamMoiTrang);
+    double tron2ChuSo = Math.Round(1.0 * tongSoSanPham / SoSanPhamMoiTrang, 2);
+}
+<div>Tổng số: @tongSoSanPham - mỗi trang @SoSanPhamMoiTrang</div>
+<div>Tổng số trang: @soTrang</div>
+<div>Làm tròn: @tron2ChuSo</div>
+
+<hr />
+<h1>OOP</h1>
+@{ 
+    //Khai báo và khởi tạo dạng Property
+    var hcn = new HinhChuNhat
+    {
+        Dai = 7.7, Rong = 3.3
+    };
+}
+<div>@hcn.Xuat()</div>
+<div>@hcn</div>

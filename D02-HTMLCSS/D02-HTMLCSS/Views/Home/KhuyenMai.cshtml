@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HangHoa>
+
+@{
+    ViewData["Title"] = "KhuyenMai";
+}
+
+<h1>Khuyến Mãi</h1>
+<link rel="stylesheet" href="~/css/HangHoa.css" />
+@foreach (var hh in Model)
+{
+    <!-- Một hàng hóa -->
+    <div class="hh-box">
+        <img src="~/images/moi-icon.png" class="hh-box-new-icon" />
+        <img src="~/HangHoa/@hh.Hinh" class="hh-box-img" />
+        <div class="hh-box-price">
+            @hh.GiaBan.ToString("#,##0") đ
+        </div>
+        <div class="hh-box-action">
+            <img src="~/images/Basket.png" />
+            <img src="~/images/favourites.png" />
+            <img src="~/images/Letter.png" />
+        </div>
+        <div class="hh-box-name">@hh.TenHh</div>
+        @if(hh.CoGiaSoc)
+        {
+            <img src="~/images/GiaSoc_62x69px.png" class="hh-box-gia-soc" />
+        }
+    </div>
+    <!--/ Một hàng hóa -->
+}
+

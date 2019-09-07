@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../lib/jquery/dist/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            //gắn sự kiện hơ chuột lên thẻ div
+            $("div").hover(function () {
+                //$(this).hide(1000);
+                $(this).css({
+                    "color": "red"
+                });
+            });
+            //gắn sự kiện click lên button
+            $("#btnChao").click(function () {
+                var chao = "Xin chào bạn: <b>" + $("#HoTen").val() + "</b>";
+                //alert(chao);
+                $(".loi-chao").text(chao);
+                $(".loi-chao-html").html(chao);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input id="HoTen" placeholder="Nhập họ tên" />
+    <button id="btnChao" type="button">Chào</button>
+    <div class="loi-chao"></div>
+    <div class="loi-chao-html"></div>
+    <div>Div 1</div>
+    <div>Div 2</div>
+    <div>Div 3</div>
+    <div>Div 4</div>
+    <div>Div 5</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../lib/jquery/dist/jquery.js"></script>
+
+</head>
+<body>
+    <div>
+        User name: <input id="txtUser" />
+    </div>
+    <div>
+        Password: <input id="txtPass" type="password" />
+    </div>
+    <button type="button" id="btnLogin">Login</button>
+    <div id="result"></div>
+    <style>
+        .loi{color:red; background-color: yellow;}
+    </style>
+    <script>
+        $(function () {
+            $("#btnLogin").click(function () {
+                var user = $("#txtUser");
+                var pass = $("#txtPass");
+
+                //nếu là nút Logout
+                if ($(this).html() == "Logout") {
+                    user.next().remove();
+                    pass.next().remove();
+                    user.val("").show();
+                    pass.val("").show();
+                    $("#result").html("");
+                    $(this).html("Login");
+                    return true;
+                }
+
+                if (user.val().length == 0 || pass.val().length == 0) {
+                    $("#result").html("Chưa nhập đủ thông tin");
+                    user.addClass("loi");
+                    pass.addClass("loi");
+                    return false;
+                }
+
+                //kiem tra dang nhap
+                if (user.val().length < 4 || pass.val().length < 4) {
+                    $("#result").html("Đăng nhập không thành công");
+                    return false;
+                }
+
+                //Dang nhap thành công
+                $("#result").html("Đăng nhập thành công");
+                if (user.hasClass("loi"))
+                    user.removeClass("loi");
+                pass.removeClass("loi");
+                $(this).html("Logout");
+
+                user.after("<span>" + user.val() + "</span>");
+                pass.after(pass.val());
+                user.hide(); pass.hide();
+                return true;
+            });
+        });
+    </script>
+</body>
+</html>

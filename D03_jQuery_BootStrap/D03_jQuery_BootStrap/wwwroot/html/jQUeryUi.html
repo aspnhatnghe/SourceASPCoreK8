@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../lib/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            $("#NgaySinh").datepicker({
+                dateFormat: "dd/mm/yy",
+                maxDate: "-10Y"
+            });
+            $("#TuNgay, #DenNgay").datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+
+            $("#mytabs").tabs();
+        });
+    </script>
+</head>
+<body>
+    <h2>DatePicker</h2>
+    Năm sinh: <input id="NgaySinh" />
+    <br />
+    Từ ngày: <input id="TuNgay" />
+    đến ngày: <input id="DenNgay" />
+    <h2>Tabs</h2>
+    <div id="mytabs">
+        <!--Phần menu-->
+        <ul>
+            <li><a href="#T1">Thông số Kỹ thuật</a></li>
+            <li><a href="#T2">Hình ảnh</a></li>
+            <li><a href="#T3">Bình luận</a></li>
+        </ul>
+        <!--Phần content-->
+        <div id="T1">Nội dung T1</div>
+        <div id="T2">Nội dung T2</div>
+        <div id="T3">Nội dung T3</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "DemoPassData";
+    var sp = ViewBag.SanPham as HangHoa;
+}
+
+<h1>Demo Get Data from ViewBag</h1>
+<h3>@ViewBag.Ten - @ViewBag.Tuoi</h3>
+@if(sp != null)
+{
+    <h5>@sp.MaHh - @sp.TenHh - @sp.GiaBan</h5>
+}
+

@@ -1,0 +1,50 @@
+﻿@model D05_MVC.Models.HangHoa
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>HangHoa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="SaveFile" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaHh" class="control-label"></label>
+                <input asp-for="MaHh" class="form-control" />
+                <span asp-validation-for="MaHh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenHh" class="control-label"></label>
+                <input asp-for="TenHh" class="form-control" />
+                <span asp-validation-for="TenHh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hinh" class="control-label"></label>
+                <img src="~/Data/@Model.Hinh" />
+                <input name="fHinh" type="file" class="form-control" />
+                <span asp-validation-for="Hinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonGia" class="control-label"></label>
+                <input asp-for="DonGia" class="form-control" />
+                <span asp-validation-for="DonGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GiamGia" class="control-label"></label>
+                <input asp-for="GiamGia" class="form-control" />
+                <span asp-validation-for="GiamGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input name="FileType" type="submit" value="Save file Text" class="btn btn-primary" />
+                <input name="FileType" type="submit" value="Save file JSON" class="btn btn-primary" />
+
+                <a class="btn btn-success" asp-action="ReadFile" asp-route-type="Text">Read file Text</a>
+                <a class="btn btn-success" asp-action="ReadFile" asp-route-type="JSON">Read file JSON</a>
+            </div>
+        </form>
+    </div>
+</div>

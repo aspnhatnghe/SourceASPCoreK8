@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "jquery";
+}
+
+<h1>jquery</h1>
+
+<form id="myForm">
+    Name: <input name="Name" /><br />
+    Age: <input name="Age" /><br />
+    <button>Send</button>
+</form>
+<style>
+    label.error{color:red;}
+</style>
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script>
+        $(function () {
+            $("#myForm").validate({
+                rules: {
+                    Name: { required: true, minlength: 3 },
+                    Age: { required: true, range: [10, 50] }
+                },
+                messages: {
+                    Name: { required: "*", minlength: "Tối thiểu 3 kí tự" },
+                    Age: { required: "*", range: "Từ 10 đến 50 tuổi" }
+                }
+            });
+        });
+    </script>
+}

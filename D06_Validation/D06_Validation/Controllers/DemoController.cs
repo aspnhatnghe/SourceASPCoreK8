@@ -9,6 +9,20 @@ namespace D06_Validation.Controllers
 {
     public class DemoController : Controller
     {
+        public IActionResult CheckUserName(string MaNv)
+        {
+            List<string> dsUser = new List<string>()
+            {
+                "admin", "guest", "user", "customer"
+            };
+
+            if(dsUser.Contains(MaNv))
+            {
+                return Json("Mã này đã có");
+            }
+            return Json(true);
+        }
+
         public IActionResult RegisterEmployee()
         {
             return View();
@@ -41,6 +55,11 @@ namespace D06_Validation.Controllers
             {
                 ModelState.AddModelError("loi", "Còn lỗi");
             }
+            return View();
+        }
+
+        public IActionResult jquery()
+        {
             return View();
         }
     }

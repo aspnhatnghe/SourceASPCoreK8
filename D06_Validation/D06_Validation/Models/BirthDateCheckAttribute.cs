@@ -18,7 +18,17 @@ namespace D06_Validation.Models
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            return base.IsValid(value, validationContext);
+            var model = validationContext.ObjectInstance as Employee;
+            if (model == null)
+            {
+                throw new ArgumentException("Tham số truyền không đúng");
+            }
+            if (DateTime.Now.Year - model.BirthDate.Year < 5)
+            {
+                return new ValidationResult("Chưa đủ 5 tuổi");
+            }
+
+            return ValidationResult.Success;
         }
     }
 }

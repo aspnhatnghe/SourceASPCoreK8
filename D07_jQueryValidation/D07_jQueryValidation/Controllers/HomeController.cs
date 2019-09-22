@@ -12,6 +12,22 @@ namespace D07_jQueryValidation.Controllers
 {
     public class HomeController : Controller
     {
+        public IActionResult Partial()
+        {
+            string[] data = new string[]{
+                "Sharp", "Samsung", "Nokia"
+            };
+            return PartialView("_Category", data);
+        }
+        public IActionResult Demo1()
+        {
+            return View();
+        }
+        public IActionResult Demo2()
+        {
+            return View();
+        }
+
         public IActionResult Register()
         {
             #region Generate Security Code

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    <div class="container">
+        <!--banner-->
+        <header class="bg-dark" style="height:100px;"></header>
+        <div class="row">
+            <aside class="col-3">
+                @await Html.PartialAsync("_Category", new string[] {"LG", "Nokia", "Coca" })
+                @await Html.PartialAsync("_Category", new string[] { "Apple", "Samsung"})
+            </aside>
+            <div class="col-9" style="min-height:600px;">
+                @RenderBody()
+            </div>
+        </div>
+        <footer class="text-center text-danger">
+            Bàn quyền thuộc về ABC
+        </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

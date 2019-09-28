@@ -11,3 +11,6 @@ Source code ASP.NET Core 2.2 khóa ngày 24/08/2019
 ## Buổi 3 (07/09/2019): jQuery + BootStrap
 
 ## Buổi 4 (08/09/2019): MVC Basic
+
+
+## Buổi 8 (28/09/2019): Layout (for Project)

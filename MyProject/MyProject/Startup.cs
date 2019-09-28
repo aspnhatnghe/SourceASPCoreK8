@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyProject.Repositories;
 
 namespace MyProject
 {
@@ -33,6 +34,9 @@ namespace MyProject
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            //khai báo các dịch vụ
+            services.AddTransient<ICategoryRepo, MockCategoryRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +59,11 @@ namespace MyProject
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                name: "areas",
+                template: "{area:exists}/{controller=Category}/{action=Index}/{id?}"
+              );
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

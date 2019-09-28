@@ -1,41 +1,18 @@
 ﻿@model IEnumerable<MyProject.DataModels.Category>
-
-@foreach (var item in Model)
+@{
+    var parentCategory = Model.Where(p => !p.ParentCategoryId.HasValue);
+}
+@foreach (var item in parentCategory)
 {
+    var childCategory = Model.Where(p => p.ParentCategoryId.HasValue && p.ParentCategoryId.Value == item.CaterogyId);
     <li>
         <a href="product-details.html">@item.CaterogyName<i class="fa fa-angle-down"></i></a>
         <div class="mega-menu">
             <span>
-                <a href="#" class="title">Jackets</a>
-                <a href="shop.html">Tops & Tees</a>
-                <a href="shop.html">Polo Short Sleeve</a>
-                <a href="shop.html">Graphic T-Shirts</a>
-                <a href="shop.html">Jackets & Coats</a>
-                <a href="shop.html">Fashion Jackets</a>
-            </span>
-            <span>
-                <a href="#" class="title">weaters</a>
-                <a href="shop.html">Crochet</a>
-                <a href="shop.html">Sleeveless</a>
-                <a href="shop.html">Stripes</a>
-                <a href="shop.html">Sweaters</a>
-                <a href="shop.html">hoodies</a>
-            </span>
-            <span>
-                <a href="#" class="title">Bottoms</a>
-                <a href="shop.html">Heeled sandals</a>
-                <a href="shop.html">Polo Short Sleeve</a>
-                <a href="shop.html">Flat sandals</a>
-                <a href="shop.html">Short Sleeve</a>
-                <a href="shop.html">Long Sleeve</a>
-            </span>
-            <span>
-                <a href="#" class="title">Jeans Pants</a>
-                <a href="shop.html">Polo Short Sleeve</a>
-                <a href="shop.html">Sleeveless</a>
-                <a href="shop.html">Graphic T-Shirts</a>
-                <a href="shop.html">Hoodies</a>
-                <a href="shop.html">Jackets</a>
+                @foreach (var child in childCategory)
+                {
+                    <a href="shop.html">@child.CaterogyName</a>
+                }
             </span>
         </div>
     </li>

@@ -9,5 +9,6 @@ namespace MyProject.DataModels
     {
         public int CaterogyId { get; set; }
         public string CaterogyName { get; set; }
+        public int? ParentCategoryId { get; set; }
     }
 }

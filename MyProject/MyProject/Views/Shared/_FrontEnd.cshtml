@@ -289,111 +289,31 @@
             </div>
         </div>
         <!-- main-menu-area-end -->
-        <!-- mobile-menu-area-start -->
-        <div class="mobile-menu-area hidden-md hidden-lg">
+    </header>
+    <!-- header-area-end -->
+    <!-- breadcrumbs-area-start -->
+    @RenderSection("breadcrumbs", required: false)
+    <!-- breadcrumbs-area-end -->
+
+    <div id="mainBody">
+        @RenderBody()
+    </div>
+
+    <!-- footer-area-start -->
+    <footer>
+        <!-- footer-top-start -->
+        <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="mobile-menu">
-                            <nav id="mobile-menu-active">
-                                <ul id="nav">
-                                    <li>
-                                        <a href="index.html">Home</a>
-                                        <ul>
-                                            <li><a href="index-2.html">Home-2</a></li>
-                                            <li><a href="index-3.html">Home-3</a></li>
-                                            <li><a href="index-4.html">Home-4</a></li>
-                                            <li><a href="index-5.html">Home-5</a></li>
-                                            <li><a href="index-6.html">Home-6</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="product-details.html">Book</a>
-                                        <ul>
-                                            <li><a href="shop.html">Tops & Tees</a></li>
-                                            <li><a href="shop.html">Polo Short Sleeve</a></li>
-                                            <li><a href="shop.html">Graphic T-Shirts</a></li>
-                                            <li><a href="shop.html">Jackets & Coats</a></li>
-                                            <li><a href="shop.html">Fashion Jackets</a></li>
-                                            <li><a href="shop.html">Crochet</a></li>
-                                            <li><a href="shop.html">Sleeveless</a></li>
-                                            <li><a href="shop.html">Stripes</a></li>
-                                            <li><a href="shop.html">Sweaters</a></li>
-                                            <li><a href="shop.html">hoodies</a></li>
-                                            <li><a href="shop.html">Heeled sandals</a></li>
-                                            <li><a href="shop.html">Polo Short Sleeve</a></li>
-                                            <li><a href="shop.html">Flat sandals</a></li>
-                                            <li><a href="shop.html">Short Sleeve</a></li>
-                                            <li><a href="shop.html">Long Sleeve</a></li>
-                                            <li><a href="shop.html">Polo Short Sleeve</a></li>
-                                            <li><a href="shop.html">Sleeveless</a></li>
-                                            <li><a href="shop.html">Graphic T-Shirts</a></li>
-                                            <li><a href="shop.html">Hoodies</a></li>
-                                            <li><a href="shop.html">Jackets</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="product-details.html">Audio books</a>
-                                        <ul>
-                                            <li><a href="shop.html">Tops & Tees</a></li>
-                                            <li><a href="shop.html">Sweaters</a></li>
-                                            <li><a href="shop.html">Hoodies</a></li>
-                                            <li><a href="shop.html">Jackets & Coats</a></li>
-                                            <li><a href="shop.html">Long Sleeve</a></li>
-                                            <li><a href="shop.html">Short Sleeve</a></li>
-                                            <li><a href="shop.html">Polo Short Sleeve</a></li>
-                                            <li><a href="shop.html">Sleeveless</a></li>
-                                            <li><a href="shop.html">Sweaters</a></li>
-                                            <li><a href="shop.html">Hoodies</a></li>
-                                            <li><a href="shop.html">Wedges</a></li>
-                                            <li><a href="shop.html">Vests</a></li>
-                                            <li><a href="shop.html">Polo Short Sleeve</a></li>
-                                            <li><a href="shop.html">Sleeveless</a></li>
-                                            <li><a href="shop.html">Graphic T-Shirts</a></li>
-                                            <li><a href="shop.html">Hoodies</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="product-details.html">children’s books</a>
-                                        <ul>
-                                            <li><a href="shop.html">Shirts</a></li>
-                                            <li><a href="shop.html">Florals</a></li>
-                                            <li><a href="shop.html">Crochet</a></li>
-                                            <li><a href="shop.html">Stripes</a></li>
-                                            <li><a href="shop.html">Shorts</a></li>
-                                            <li><a href="shop.html">Dresses</a></li>
-                                            <li><a href="shop.html">Trousers</a></li>
-                                            <li><a href="shop.html">Jeans</a></li>
-                                            <li><a href="shop.html">Heeled sandals</a></li>
-                                            <li><a href="shop.html">Flat sandals</a></li>
-                                            <li><a href="shop.html">Wedges</a></li>
-                                            <li><a href="shop.html">Ankle boots</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">blog</a>
-                                        <ul>
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-details.html">blog-details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="product-details.html">Page</a>
-                                        <ul>
-                                            <li><a href="shop.html">Shop</a></li>
-                                            <li><a href="product-details.html">product-details</a></li>
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-details.html">blog-details</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="register.html">Register</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="404.html">404 Page</a></li>
-                                        </ul>
-                                    </li>
+                        <div class="footer-top-menu bb-2">
+                            <nav>
+                                <ul>
+                                    <li><a href="#">home</a></li>
+                                    <li><a href="#">Enable Cookies</a></li>
+                                    <li><a href="#">Privacy and Cookie Policy</a></li>
+                                    <li><a href="#">contact us</a></li>
+                                    <li><a href="#">blog</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -401,14 +321,124 @@
                 </div>
             </div>
         </div>
-        <!-- mobile-menu-area-end -->
-    </header>
-    <!-- header-area-end -->
-    <div>
-        @RenderBody()
-    </div>
+        <!-- footer-top-start -->
+        <!-- footer-mid-start -->
+        <div class="footer-mid ptb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="single-footer br-2 xs-mb">
+                                    <div class="footer-title mb-20">
+                                        <h3>Products</h3>
+                                    </div>
+                                    <div class="footer-mid-menu">
+                                        <ul>
+                                            <li><a href="about.html">About us</a></li>
+                                            <li><a href="#">Prices drop </a></li>
+                                            <li><a href="#">New products</a></li>
+                                            <li><a href="#">Best sales</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="single-footer br-2 xs-mb">
+                                    <div class="footer-title mb-20">
+                                        <h3>Our company</h3>
+                                    </div>
+                                    <div class="footer-mid-menu">
+                                        <ul>
+                                            <li><a href="contact.html">Contact us</a></li>
+                                            <li><a href="#">Sitemap</a></li>
+                                            <li><a href="#">Stores</a></li>
+                                            <li><a href="register.html">My account </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="single-footer br-2 xs-mb">
+                                    <div class="footer-title mb-20">
+                                        <h3>Your account</h3>
+                                    </div>
+                                    <div class="footer-mid-menu">
+                                        <ul>
+                                            <li><a href="contact.html">Addresses</a></li>
+                                            <li><a href="#">Credit slips </a></li>
+                                            <li><a href="#"> Orders</a></li>
+                                            <li><a href="#">Personal info</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="single-footer mrg-sm">
+                            <div class="footer-title mb-20">
+                                <h3>STORE INFORMATION</h3>
+                            </div>
+                            <div class="footer-contact">
+                                <p class="adress">
+                                    <span>My Company</span>
+                                    42 avenue des Champs Elysées 75000 Paris France
+                                </p>
+                                <p><span>Call us now:</span> (+1)866-540-3229</p>
+                                <p><span>Email:</span>  support@hastech.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer-mid-end -->
+        <!-- footer-bottom-start -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row bt-2">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="copy-right-area">
+                            <p>Copyright ©<a href="#">Koparion</a>. All Right Reserved.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="payment-img text-right">
+                            <a href="#"><img src="~/img/1.png" alt="payment" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer-bottom-end -->
+    </footer>
+    <!-- footer-area-end -->
+
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- owl.carousel js -->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="~/js/jquery.meanmenu.js"></script>
+    <!-- wow js -->
+    <script src="~/js/wow.min.js"></script>
+    <!-- jquery.parallax-1.1.3.js -->
+    <script src="~/js/jquery.parallax-1.1.3.js"></script>
+    <!-- jquery.countdown.min.js -->
+    <script src="~/js/jquery.countdown.min.js"></script>
+    <!-- jquery.flexslider.js -->
+    <script src="~/js/jquery.flexslider.js"></script>
+    <!-- chosen.jquery.min.js -->
+    <script src="~/js/chosen.jquery.min.js"></script>
+    <!-- jquery.counterup.min.js -->
+    <script src="~/js/jquery.counterup.min.js"></script>
+    <!-- waypoints.min.js -->
+    <script src="~/js/waypoints.min.js"></script>
+    <!-- plugins js -->
+    <script src="~/js/plugins.js"></script>
+    <!-- main js -->
+    <script src="~/js/main.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

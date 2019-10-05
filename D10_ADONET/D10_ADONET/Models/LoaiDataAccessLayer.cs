@@ -84,12 +84,12 @@ namespace D10_ADONET.Models
             catch { return false; }
         }
 
-        public static bool Remove(Loai lo)
+        public static bool Remove(int maLoai)
         {
             try
             {
                 SqlParameter[] pa = new SqlParameter[1];
-                pa[0] = new SqlParameter("MaLoai", lo.MaLoai);
+                pa[0] = new SqlParameter("MaLoai", maLoai);
 
                 DataProvider.ExcuteNonQuery("spXoaLoai", CommandType.StoredProcedure, pa);
 

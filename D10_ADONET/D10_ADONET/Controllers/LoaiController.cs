@@ -38,7 +38,11 @@ namespace D10_ADONET.Controllers
             }
             return View();
         }
-
+        public IActionResult Delete(int id)
+        {
+            bool result = LoaiDataAccessLayer.Remove(id);
+            return Json(result);
+        }
         public IActionResult Edit(int id)
         {
             Loai lo = LoaiDataAccessLayer.Get(id);

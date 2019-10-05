@@ -58,14 +58,16 @@ END
 --Lấy loại
 CREATE PROC spLayLoai
 	@MaLoai int
-AS BEGIN
-	IF (@MaLoai IS NULL)
-		SELECT * FROM Loai
-	ELSE
-		SELECT * FROM Loai WHERE MaLoai = @MaLoai
+AS BEGIN		
+	SELECT * FROM Loai WHERE MaLoai = @MaLoai
 END
 
-EXEC spLayLoai null
+CREATE PROC spLayTatCaLoai	
+AS BEGIN		
+	SELECT * FROM Loai ORDER BY TenLoai
+END
+
+EXEC spLayLoai
 
 --Viết hàm tính doanh số theo khách hàng
 ALTER FUNCTION DoanhSoTheoKhachHang

@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tìm kiếm</h1>
+<form asp-action="Index">
+    Tìm <input name="TuKhoa" placeholder="Nhập từ khóa cần tìm" />
+    Giá từ <input name="GiaTu" type="number" min="0" />
+    giá đến <input name="GiaDen" type="number" min="0" />
+    <button class="btn btn-primary">Tìm kiếm</button>
+</form>
+

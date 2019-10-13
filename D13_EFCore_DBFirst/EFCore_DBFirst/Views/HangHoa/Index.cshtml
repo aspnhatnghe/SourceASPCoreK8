@@ -3,7 +3,14 @@
     ViewData["Title"] = "Index";
 }
 <link href="~/css/HangHoa.css" rel="stylesheet" />
-
+<h2>Danh sách Sản phẩm</h2>
+<div>Trang: @ViewBag.TrangHienTai/@ViewBag.TongSoTrang</div>
+<ul class="pagination">
+    <li class="page-item"><a class="page-link" asp-action="Index" asp-route-loai="@ViewBag.loai" asp-route-ncc="@ViewBag.ncc" asp-route-page="1">First</a></li>
+    <li class="page-item"><a class="page-link" asp-action="Index" asp-route-loai="@ViewBag.loai" asp-route-ncc="@ViewBag.ncc" asp-route-page="@(ViewBag.TrangHienTai - 1)">Previous</a></li>
+    <li class="page-item"><a class="page-link" asp-action="Index" asp-route-loai="@ViewBag.loai" asp-route-ncc="@ViewBag.ncc" asp-route-page="@(ViewBag.TrangHienTai + 1)">Next</a></li>
+    <li class="page-item"><a class="page-link" asp-action="Index" asp-route-loai="@ViewBag.loai" asp-route-ncc="@ViewBag.ncc" asp-route-page="@ViewBag.TongSoTrang">Last</a></li>
+</ul>
 <ul class="product-list">
     @foreach (var hh in Model)
     {

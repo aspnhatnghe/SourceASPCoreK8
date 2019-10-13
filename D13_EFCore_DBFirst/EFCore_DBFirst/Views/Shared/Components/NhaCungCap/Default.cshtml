@@ -1,0 +1,13 @@
+﻿@model IEnumerable<NhaCungCap>
+
+<div class="card mt-1 mb-1">
+    <div class="card-header bg-success">
+        NHÀ CUNG CẤP
+    </div>
+    @foreach (var lo in Model)
+    {
+        <a class="list-group-item" asp-action="Index" asp-controller="HangHoa" asp-route-loai="@lo.MaNcc">
+            @lo.TenCongTy
+        </a>
+    }
+</div>

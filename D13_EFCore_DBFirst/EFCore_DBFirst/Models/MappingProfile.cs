@@ -15,6 +15,9 @@ namespace EFCore_DBFirst.Models
             CreateMap<HangHoa, HangHoaViewModel>()
                 .ForMember(dest => dest.TenLoai, opt => opt.MapFrom(src => src.MaLoaiNavigation.TenLoai));
             //chỉ thuộc tính khác nhau ở 2 bên thì mới định nghĩa
+
+            CreateMap<HangHoa, HangHoaKhuyenMai>()
+                .ForMember(d => d.GiaBan, opt => opt.MapFrom(s => s.DonGia * (1 - s.GiamGia)));
         }
     }
 }

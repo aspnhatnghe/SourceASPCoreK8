@@ -44,6 +44,7 @@
             <aside class="col col-3">
                 @await Component.InvokeAsync("Loai")
                 @await Component.InvokeAsync("NhaCungCap")
+                @await Component.InvokeAsync("KhuyenMai", new { soLuong = 3})
             </aside>
             <main role="main" class="col-9 pb-3">
                 @RenderBody()

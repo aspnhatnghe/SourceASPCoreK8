@@ -6,7 +6,7 @@
     </div>
     @foreach (var lo in Model)
     {
-        <a class="list-group-item" asp-action="Index" asp-controller="HangHoa" asp-route-loai="@lo.MaNcc">
+        <a class="list-group-item" asp-action="Index" asp-controller="HangHoa" asp-route-ncc="@lo.MaNcc">
             @lo.TenCongTy
         </a>
     }

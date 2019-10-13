@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Loai>
+
+<div class="card">
+    @foreach (var lo in Model)
+    {
+        <a class="list-group-item" asp-action="Index" asp-controller="HangHoa" asp-route-loai="@lo.MaLoai">
+            @lo.TenLoai
+        </a>
+    }
+</div>

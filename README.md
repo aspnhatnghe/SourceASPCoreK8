@@ -23,3 +23,18 @@ Source code ASP.NET Core 2.2 khóa ngày 24/08/2019
 * DI
 
 ## Buổi 9 (29/09/2019): SQL Server
+
+## Buổi 10 (05/10/2019): ADO.NET
+* Xây dựng lớp DataProvider
+* Xây dựng Data Model (DTO), DataAccessLayer (CRUD)
+* Minh họa
+
+## Buổi 11 (06/10/2019): Giới thiệu EF Core
+* Database First
+* Code First
+
+## Buổi 12 (12/10/2019): EF Core - DB First
+* CUD
+* Truy vấn: .Where(), .Select(), .GroupBy(), .OrderBy(), .Take(), .Skip()
+
+## Buổi 13 (13/10/2019): EF Core - DB First

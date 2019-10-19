@@ -1,0 +1,15 @@
+﻿@model IEnumerable<HangHoaKhuyenMai>
+<style>
+    .hh-km{border-radius:7px; border:1px solid blue; margin: 2px 0; text-align:center;}
+    .hh-km img{width: 150px; height:150px;}
+</style>
+<div>
+    @foreach (var hh in Model)
+    {
+        <div class="hh-km">
+            <a asp-action="ChiTiet" asp-route-id="@hh.MaHh" title="@hh.TenHh - @hh.GiaBan">
+                <img src="~/Hinh/HangHoa/@hh.Hinh" />
+            </a>
+        </div>
+    }
+</div>

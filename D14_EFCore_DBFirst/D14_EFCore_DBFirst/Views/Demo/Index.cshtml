@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tìm kiếm</h1>
+<form asp-action="Index">
+    Tìm <input name="TuKhoa" placeholder="Nhập từ khóa cần tìm" />
+    Giá từ <input name="GiaTu" type="number" min="0" />
+    giá đến <input name="GiaDen" type="number" min="0" />
+    <button class="btn btn-primary">Tìm kiếm</button>
+</form>
+
+@{
+    var dsHangHoa = ViewBag.KetQua != null ? ViewBag.KetQua as List<HangHoaViewModel> : new List<HangHoaViewModel>();
+}
+<h2>Kết quả tìm kiếm</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã</th>
+            <th>Tên</th>
+            <th>Đơn giá</th>
+            <th>Giảm giá</th>
+            <th>Giá bán</th>
+            <th>Ngày sản xuất</th>
+            <th>Loại</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hh in dsHangHoa)
+        {
+            <tr>
+                <td>@hh.MaHh</td>
+                <td>@hh.TenHh</td>
+                <td>@hh.DonGia</td>
+                <td>@hh.PhanTramGiamGia</td>
+                <th>@hh.GiaBan</th>
+                <th>@hh.NgaySx.ToString("dd/MM/yyyy")</th>
+                <th>@hh.TenLoai</th>
+            </tr>
+        }
+    </tbody>
+</table>

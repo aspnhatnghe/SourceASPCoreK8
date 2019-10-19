@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using D14_EFCore_DBFirst.Models;
 using EFCore_DBFirst.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,9 @@ namespace EFCore_DBFirst.Models
 
             CreateMap<HangHoa, HangHoaKhuyenMai>()
                 .ForMember(d => d.GiaBan, opt => opt.MapFrom(s => s.DonGia * (1 - s.GiamGia)));
+
+            CreateMap<HangHoa, CartItem>()
+                .ForMember(dest => dest.TenLoai, opt => opt.MapFrom(src => src.MaLoaiNavigation.TenLoai));
         }
     }
 }

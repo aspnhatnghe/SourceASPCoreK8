@@ -30,11 +30,19 @@ namespace D14_EFCore_DBFirst.Controllers
                 {
                     //lưu session đánh dấu đăng nhập thành công
                     HttpContext.Session.Set("KhachHang", kh);
-                    return RedirectToAction("Profile", "Khachhang");
+                    return RedirectToAction("Profile", "KhachHang");
                 }
             }
             ModelState.AddModelError("loi", "Sai thông tin đăng nhập");
             return View();
+        }
+
+        public IActionResult Profile()
+        {
+            var kh = HttpContext.Session.Get<KhachHang>("KhachHang");
+            if (kh == null) return RedirectToAction("Login");
+
+            return View(kh);
         }
     }
 }

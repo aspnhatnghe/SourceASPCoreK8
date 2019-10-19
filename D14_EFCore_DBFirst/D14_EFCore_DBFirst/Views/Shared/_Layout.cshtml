@@ -13,7 +13,7 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -36,20 +36,39 @@
                         </li>
                     </ul>
                 </div>
+                @using D14_EFCore_DBFirst.Helpers;
+                @{
+                    var kh = Context.Session.Get<KhachHang>("KhachHang");
+                }
+                <ul class="navbar-nav">
+                    @if (kh == null)
+                    {
+                        <li>
+                            <a asp-action="Login" asp-controller="KhachHang">Đăng nhập</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-action="Profile" asp-controller="KhachHang">Xin chào <span class="font-weight-bolder text-danger">@kh?.HoTen</span></a>
+                        </li>
+                    }
+                </ul>
+
             </div>
         </nav>
     </header>
-    <div class="container">        
+    <div class="container">
         <div class="row m-0">
             <aside class="col col-3">
                 @await Component.InvokeAsync("Loai")
                 @await Component.InvokeAsync("NhaCungCap")
-                @await Component.InvokeAsync("KhuyenMai", new { soLuong = 3})
+                @await Component.InvokeAsync("KhuyenMai", new { soLuong = 3 })
             </aside>
             <main role="main" class="col-9 pb-3">
                 @RenderBody()
             </main>
-        </div>       
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">

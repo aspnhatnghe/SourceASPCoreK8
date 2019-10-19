@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using AutoMapper;
 using EFCore_DBFirst.Models;
 using EFCore_DBFirst.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using D14_EFCore_DBFirst.Helpers;
 
 namespace EFCore_DBFirst.Controllers
 {
@@ -98,6 +100,22 @@ namespace EFCore_DBFirst.Controllers
             var result = _mapper.Map<List<HangHoaViewModel>>(data.ToList());
 
             return View(result);
+        }
+
+        public IActionResult Session()
+        {
+            //gán session
+            HttpContext.Session.SetString("HoTen", "Nguyễn Văn tèo");
+            HttpContext.Session.SetInt32("NamSinh", 1980);
+
+            var hh = new HangHoaViewModel
+            {
+                MaHh = 1, TenHh = "Bia Sài Gòn",
+                DonGia = 15900, TenLoai = "Bia"
+            };
+            HttpContext.Session.Set<HangHoaViewModel>("Bia", hh);
+
+            return View();
         }
     }
 }

@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using D14_EFCore_DBFirst.Helpers;
+@{
+    ViewData["Title"] = "Session";
+    var bia = Context.Session.Get<HangHoaViewModel>("Bixa");
+}
+
+<h1>Session</h1>
+
+<h2>@bia?.TenHh - @bia?.GiaBan</h2>
+
+<div>Tên : @Context.Session.GetString("HoTen")</div>
+<div>Năm sinh: @Context.Session.GetInt32("NamSinh")</div>
+@Context.Session.GetString("AAAA")

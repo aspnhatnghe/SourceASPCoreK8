@@ -40,6 +40,10 @@ namespace EFCore_DBFirst
             services.AddDbContext<MyeStoreContext>(option => option.UseSqlServer(Configuration.GetConnectionString("MyeStore")));
 
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddSession(opt => {
+                opt.IdleTimeout = TimeSpan.FromMinutes(1);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +60,7 @@ namespace EFCore_DBFirst
                 app.UseHsts();
             }
 
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

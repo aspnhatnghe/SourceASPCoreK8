@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "JsonSearch";
+}
+
+<h1>Json Search</h1>
+<div>
+    Tên <input id="TuKhoa" placeholder="tìm?" />
+    Giá từ <input type="number" id="GiaTu" />
+    đến <input type="number" id="GiaDen" />
+    <button type="button" class="btn btn-primary" id="btnTim">Tìm kiếm</button>
+</div>
+<table class="table table-responsive table-bordered">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Hàng hóa</th>
+            <th>Giá bán</th>
+            <th>Loại</th>
+            <th>Hình</th>
+        </tr>
+    </thead>
+    <tbody id="result"></tbody>
+</table>
+@section Scripts{
+    <script>
+        $(function () {
+            $("#btnTim").click(function () {
+                $.ajax({
+                    url: "/Ajax/JsonSearch",
+                    type: "POST",
+                    data: {
+                        tuKhoa: $("#TuKhoa").val(),
+                        giaTu: $("#GiaTu").val(),
+                        giaDen: $("#GiaDen").val()
+                    },
+                    success: function (jsonData) {
+                        console.log(jsonData);
+
+                        $(jsonData).each(function (index, item) {
+                            var tr = $("<tr/>");
+                            $("<td/>").html(index + 1).appendTo(tr);
+                            $("<td/>").html(item.tenHh).appendTo(tr);
+                            $("<td/>").html(item.giaBan).appendTo(tr);
+                            $("<td/>").html(item.loai).appendTo(tr);
+
+                            $("<td/>").html("<img src=\"data: image/png; base64, " + item.hinh + " \" />").appendTo(tr);
+                            $("#result").append(tr);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

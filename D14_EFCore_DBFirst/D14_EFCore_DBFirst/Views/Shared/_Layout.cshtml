@@ -41,7 +41,7 @@
                     var kh = Context.Session.Get<KhachHang>("KhachHang");
                 }
                 <ul class="navbar-nav">
-                    @if (kh == null)
+                    @if (!User.Identity.IsAuthenticated)
                     {
                         <li>
                             <a asp-action="Login" asp-controller="KhachHang">Đăng nhập</a>
@@ -51,6 +51,10 @@
                     {
                         <li>
                             <a asp-action="Profile" asp-controller="KhachHang">Xin chào <span class="font-weight-bolder text-danger">@kh?.HoTen</span></a>
+                        </li>
+                        <li>@User.Identity.Name</li>
+                        <li>
+                            <a asp-action="Logout" asp-controller="KhachHang">Đăng xuất</a>
                         </li>
                     }
                 </ul>

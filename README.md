@@ -40,3 +40,5 @@ Source code ASP.NET Core 2.2 khóa ngày 24/08/2019
 ## Buổi 13 (13/10/2019): EF Core - DB First
 
 ## Buổi 14 (19/10/2019): Session, Security
+
+## Buổi 15 (20/10/2019): Authen, Author

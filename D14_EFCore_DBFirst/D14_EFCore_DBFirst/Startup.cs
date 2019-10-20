@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using EFCore_DBFirst.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -42,8 +43,15 @@ namespace EFCore_DBFirst
             services.AddAutoMapper(typeof(Startup));
 
             services.AddSession(opt => {
-                opt.IdleTimeout = TimeSpan.FromMinutes(1);
+                opt.IdleTimeout = TimeSpan.FromMinutes(10);
             });
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(option => {
+                    option.LoginPath = "/KhachHang/Login";
+                    option.LogoutPath = "/KhachHang/Logout";
+                    option.AccessDeniedPath = "/Home/AccessDenied";
+                }) ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,7 +67,7 @@ namespace EFCore_DBFirst
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            app.UseAuthentication();
             app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();

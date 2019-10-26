@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EFCore_DBFirst.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EFCore_DBFirst.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class LoaiController : ControllerBase
     {
         private readonly MyeStoreContext _context;
@@ -22,6 +24,7 @@ namespace EFCore_DBFirst.Controllers
 
         // GET: api/Loai
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Loai>>> GetLoai()
         {
             return await _context.Loai.ToListAsync();
@@ -29,6 +32,7 @@ namespace EFCore_DBFirst.Controllers
 
         // GET: api/Loai/5
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<Loai>> GetLoai(int id)
         {
             var loai = await _context.Loai.FindAsync(id);

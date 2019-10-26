@@ -10,6 +10,24 @@
 
 </head>
 <body>
+    <div class="m-auto w-50">
+        <div class="row">
+            <label>Mã loại</label>
+            <input class="input-group" id="txtMaLoai" readonly />
+        </div>
+        <div class="row">
+            <label>Tên loại</label>
+            <input class="input-group" id="txtTenLoai" />
+        </div>
+        <div class="row">
+            <label>Mô tả</label>
+            <textarea class="input-group" id="txtMoTa"></textarea>
+        </div>
+        <div>
+            <button type="button" id="btnThem" class="btn btn-success">Thêm</button>
+            <button class="btn btn-secondary" type="button" id="btnCapNhat">Cập nhật</button>
+        </div>
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -67,9 +85,25 @@
                             }
                         });
 
-                        
+
                     });
                 }
+            });
+
+            $("#btnThem").click(function () {
+                var objLoai = new Object();
+                objLoai.tenLoai = $("#txtTenLoai").val();
+                objLoai.moTa = $("#txtMoTa").val();
+
+                $.ajax({
+                    url: urlEndpoint,
+                    method: "POST",
+                    data: JSON.stringify(objLoai),
+                    contentType: "application/json",
+                    success: function (data) {
+                        swal.fire("Thêm thành công", "", "success");
+                    }
+                });
             });
         });
     </script>

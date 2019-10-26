@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Quản lý Loại</title>
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+</head>
+<body>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Mã loại</th>
+                <th>Tên loại</th>
+                <th>Mô tả</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tblLoai"></tbody>
+    </table>
+    <script>
+        var urlEndpoint = "/api/Loai";
+        $(function () {
+            //Lấy danh sách loại
+            $.ajax({
+                url: urlEndpoint,
+                success: function (data) {
+                    $(data).each(function (index, item) {
+                        console.log(item);
+                        var tr = $("<tr/>");
+                        $("<td/>").html(item.maLoai).appendTo(tr);
+                        $("<td/>").html(item.tenLoai).appendTo(tr);
+                        $("<td/>").html(item.moTa).appendTo(tr);
+
+                        var btnXoa = $("<input value='Xóa' type='button' class='btn btn-danger xoa' />").attr("data-id", item.maLoai);
+                        var btnSua = $("<input value='Sửa' type='button' class='btn btn-primary sua' />").attr("data-id", item.maLoai);
+                        $("<td/>").append(btnXoa).append(btnSua).appendTo(tr);
+
+                        $("#tblLoai").append(tr);
+                    });//end $.each()
+
+                    $(".xoa").click(function () {
+                        var maHh = $(this).data("id");
+                        var dong = $(this).closest("tr");
+                        $.ajax({
+                            url: urlEndpoint + "/" + maHh,
+                            type: "DELETE",
+                            success: function (data) {
+                                dong.remove();
+                                swal.fire('Xóa thành công', '', "success");
+                            },
+                            error: function (xhr, opt, mess) {
+                                Swal.fire('Oops...', 'Something went wrong!', 'error');
+                            }
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

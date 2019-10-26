@@ -45,17 +45,29 @@
                     $(".xoa").click(function () {
                         var maHh = $(this).data("id");
                         var dong = $(this).closest("tr");
-                        $.ajax({
-                            url: urlEndpoint + "/" + maHh,
-                            type: "DELETE",
-                            success: function (data) {
-                                dong.remove();
-                                swal.fire('Xóa thành công', '', "success");
-                            },
-                            error: function (xhr, opt, mess) {
-                                Swal.fire('Oops...', 'Something went wrong!', 'error');
+                        Swal.fire({
+                            title: 'Chắc xóa không?',
+                            type: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: 'Xóa ngay!',
+                            cancelButtonText: 'Hủy'
+                        }).then((result) => {
+                            if (result.value) {
+                                $.ajax({
+                                    url: urlEndpoint + "/" + maHh,
+                                    type: "DELETE",
+                                    success: function (data) {
+                                        dong.remove();
+                                        swal.fire('Xóa thành công', '', "success");
+                                    },
+                                    error: function (xhr, opt, mess) {
+                                        Swal.fire('Oops...', 'Something went wrong!', 'error');
+                                    }
+                                });
                             }
                         });
+
+                        
                     });
                 }
             });

@@ -31,6 +31,8 @@ namespace EFCore_DBFirst.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Loai>> GetLoai(int id)
         {
+            _context.Database.BeginTransaction();
+
             var loai = _context.Loai
                 .Include(p => p.HangHoa)
                 .SingleOrDefault(p=> p.MaLoai == id);
@@ -39,6 +41,8 @@ namespace EFCore_DBFirst.Controllers
             {
                 return NotFound();
             }
+
+            _context.Database.CommitTransaction();
 
             return loai;
         }
